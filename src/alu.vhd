@@ -26,14 +26,14 @@ begin
                 -- a_var := To_integer(signed(A));
                 -- b_var := To_integer(signed(B));
                 -- S <= Std_logic_vector(To_signed(s_var, 33));
-                s_var := Std_logic_vector(To_signed(To_integer(signed(a_var)) + To_integer(signed(b_var)), 33));
+                s_var := Std_logic_vector(unsigned(a_var) + unsigned(b_var));
             when "001" =>
                 S_var := B_var;
             when "010" =>
                 -- a_var := To_integer(signed(A));
                 -- b_var := To_integer(signed(B));
                 -- s_var := a_var + b_var;
-                s_var := Std_logic_vector(To_signed(To_integer(signed(a_var)) + To_integer(signed(b_var)), 33));
+                s_var := Std_logic_vector(unsigned(a_var) + unsigned(b_var));
             when "011" => s_var := a_var;
             when "100" => s_var := a_var or b_var;
             when "101" => s_var := a_var and b_var;
