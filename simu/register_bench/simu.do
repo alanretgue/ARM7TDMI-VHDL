@@ -1,5 +1,5 @@
 vlib work
-vcom -93 ../src/register_bench.vhd
+vcom -93 ../../src/register_bench.vhd
 vcom -93 register_bench_tb.vhd
 
 vsim register_bench_tb

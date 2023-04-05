@@ -33,7 +33,7 @@ begin
                 -- a_var := To_integer(signed(A));
                 -- b_var := To_integer(signed(B));
                 -- s_var := a_var + b_var;
-                s_var := Std_logic_vector(unsigned(a_var) + unsigned(b_var));
+                s_var := Std_logic_vector(unsigned(a_var) - unsigned(b_var));
             when "011" => s_var := a_var;
             when "100" => s_var := a_var or b_var;
             when "101" => s_var := a_var and b_var;
