@@ -1,0 +1,1 @@
+Le banc de registre dans le fichier register_bench doit-il être un signal ou peut-il être une variable ?
