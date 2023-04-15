@@ -13,12 +13,12 @@ entity Process_Unit is
 end entity Process_Unit;
 
 architecture PU of Process_Unit is
-    signal W, A, B, AluOut, Extended, mux1Out, MemOut: std_logic_vector(31 downto 0);
+    signal W, A, B, AluOut, Extended, mux1Out, DataOut: std_logic_vector(31 downto 0);
 begin
     IMM_EXTEND: entity work.Extend_Sign generic map(8) port map(Imm, Extended);
     MUX_1: entity work.Mux21 port map(mux1Input, B, Extended, mux1Out);
     ALU: entity work.ALU port map(OP, A, mux1Out, AluOut, N, Z, C, V);
-    MEM: entity work.Data_Memory port map(CLK, Reset, AluOut(5 downto 0), B, WrEn, MemOut);
-    MUX_2: entity work.Mux21 port map(mux2Input, AluOut, MemOut, W);
+    MEM: entity work.Data_Memory port map(CLK, Reset, AluOut(5 downto 0), B, WrEn, DataOut);
+    MUX_2: entity work.Mux21 port map(mux2Input, AluOut, DataOut, W);
     REG: entity work.Register_Bench port map (CLK, Reset, W, RA, RB, RW, RegWr, A, B);
 end architecture;

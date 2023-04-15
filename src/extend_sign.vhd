@@ -3,7 +3,7 @@ use IEEE.std_logic_1164.ALL;
 use IEEE.numeric_std.ALL;
 
 entity Extend_Sign is
-    generic (N: integer := 32);
+    generic (N: integer := 24);
     port (
         E: in std_logic_vector(N - 1 downto 0);
         S: out std_logic_vector(31 downto 0)
