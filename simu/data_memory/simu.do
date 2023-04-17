@@ -1,22 +1,19 @@
 vlib work
-vcom -93 ../../src/data_memory.vhd
--- vcom -93 data_memory_tb.vhd
+vcom -2008 ../../src/data_memory.vhd
+vcom -2008 data_memory_tb.vhd
 
--- vsim data_memory_tb
+vsim data_memory_tb
 
 set StdArithNoWarnings 1
 set NumericStdNoWarnings 1
 
--- add wave CLK
--- add wave Reset
+add wave CLK
+add wave Reset
 
--- add wave -radix hexadecimal RA
--- add wave -radix hexadecimal RB
--- add wave -radix hexadecimal RW
+add wave -radix binary Addr
+add wave -radix binary WrEn
 
--- add wave -radix hexadecimal A
--- add wave -radix hexadecimal B
--- add wave -radix hexadecimal W
--- add wave -radix binary WE
+add wave -radix hexadecimal DataIn
+add wave -radix hexadecimal DataOut
 
--- run -a
+run -a
