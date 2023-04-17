@@ -7,6 +7,8 @@ entity PROCESS_UNIT_2_TB is
 end entity;
 
 architecture TEST of PROCESS_UNIT_2_TB is
+    type RegisterType is array (15 downto 0) of Std_logic_vector(31 downto 0);
+
     signal CLK : std_logic := '0';
     constant Period : time := 10 ns; -- speed up simulation with a 100MHz clock
     signal Done : boolean;
@@ -19,6 +21,8 @@ architecture TEST of PROCESS_UNIT_2_TB is
     signal ALUOut: std_logic_vector(31 downto 0);
     signal BusA, BusB: std_logic_vector(31 downto 0);
     signal Ext: std_logic_vector(31 downto 0);
+
+    signal RegisterBench: RegisterType;
 begin
     CLK <= '0' when Done else not CLK after Period / 2;
 
@@ -26,6 +30,7 @@ begin
     BusA <= <<signal .process_unit_2_tb.p.A: std_logic_vector(31 downto 0)>>;
     BusB <= <<signal .process_unit_2_tb.p.B: std_logic_vector(31 downto 0)>>;
     Ext <= <<signal .process_unit_2_tb.p.Extended: std_logic_vector(31 downto 0)>>;
+    RegisterBench <= <<signal .process_unit_2_tb.p.registers: std_logic_vector(31 downto 0)>>;
     process begin
         -- Write 0x0F to R0
         Reset <= '1';
@@ -41,6 +46,8 @@ begin
         mux2Input <= '0';
         Imm <= x"0F";
         wait for 10 ns;
+        assert DataOut = x"0000FFFF" report "Error DataOut on 1" severity warning;
+        
         -- Write 0x01 to R1
         RW <= x"1";
         RA <= x"1";
