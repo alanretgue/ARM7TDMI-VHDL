@@ -17,8 +17,7 @@ begin
     begin
         if Reset = '1' then
             PCout <= (others => '0');
-        end if;
-        if Rising_Edge(CLK) then
+        elsif Rising_Edge(CLK) then
             PCout <= PCin;
         end if;
     end process;
