@@ -19,6 +19,8 @@ entity Decoder is
 end entity Decoder;
 
 architecture Derick of Decoder is
+    type enum_instruction is (MOV, ADDi, ADDr, CMP, LDR, STR, BAL, BLT);
+    signal instr_courante: enum_instruction;
 begin
     process(RegPSR, Instr)
         variable Cond: std_logic_vector(3 downto 0);
@@ -46,6 +48,5 @@ begin
             when "10" =>
             when others =>
         end case;
-                
     end process;
 end architecture Derick;

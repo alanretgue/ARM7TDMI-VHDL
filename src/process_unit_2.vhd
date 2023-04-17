@@ -1,7 +1,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 
-entity Process_Unit is
+entity Process_Unit_2 is
     port (
         CLK, Reset: in std_logic;
         RA, RB, RW: in std_logic_vector(3 downto 0);
@@ -10,9 +10,9 @@ entity Process_Unit is
         RegWr, WrEn, mux1Input, mux2Input: in std_logic;
         N, Z, C, V: out std_logic
     ) ;
-end entity Process_Unit;
+end entity Process_Unit_2;
 
-architecture PU of Process_Unit is
+architecture PU of Process_Unit_2 is
     signal W, A, B, AluOut, Extended, mux1Out, DataOut: std_logic_vector(31 downto 0);
 begin
     IMM_EXTEND: entity work.Extend_Sign generic map(8) port map(Imm, Extended);

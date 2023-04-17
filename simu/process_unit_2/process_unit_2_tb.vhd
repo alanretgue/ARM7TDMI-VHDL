@@ -16,10 +16,14 @@ architecture TEST of PROCESS_UNIT_2_TB is
     signal OP: std_logic_vector(2 downto 0);
     signal RegWr, WrEn, mux1Input, mux2Input: std_logic;
     signal N, Z, C, V: std_logic;
+    signal BLA: std_logic_vector(31 downto 0);
+    -- alias A_i is <<signal Work.process_unit_2.A: std_logic_vector(31 downto 0)>>;
 begin
     CLK <= '0' when Done else not CLK after Period / 2;
 
     process begin
+        BLA <= <<signal .process_unit_2_tb.p.A: std_logic_vector(31 downto 0)>>;
+        -- A <= A_i;
         Reset <= '0';
         -- Write 0x0F to R0
         wait for 10 ns;
@@ -43,19 +47,18 @@ begin
         RB <= x"0";
         mux1Input <= '0';
         wait for 10 ns;
-        WE <= '1';
         wait for 10 ns;
         Done <= true;
         wait;
     end process;
 
 
-    P: entity Work.Process_Unit_2 port map (
+    P: entity Work.process_unit_2 port map (
         CLK, Reset,
         RA, RB, RW,
         Imm,
         OP,
-        RegWr, WrEn, mux1Input, mux2Input
+        RegWr, WrEn, mux1Input, mux2Input,
         N, Z, C, V
     );
 end architecture;

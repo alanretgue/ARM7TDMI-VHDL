@@ -28,22 +28,22 @@ architecture steven of Register_Bench is
         return result;
     end init_banc;
 
+    -- Init registers
+    signal registers: RegisterType := init_banc;
 begin
     process (CLK, Reset, RA, RB)
-        -- Init registers
-        variable registers: RegisterType:= init_banc;
     begin
         if Reset = '1' then
             A <= (others => '0');
             B <= (others => '0');
-            registers := (others => (others => '0'));
+            registers <= (others => (others => '0'));
         end if;
         if RISING_EDGE(CLK) then
             if WE = '1' then
-                registers(To_integer(unsigned(RW))) := W;
+                registers(To_integer(unsigned(RW))) <= W;
             end if;
         end if;
-        A <= registers(To_integer(unsigned(RA)));
-        B <= registers(To_integer(unsigned(RB)));
     end process;
+    A <= registers(To_integer(unsigned(RA)));
+    B <= registers(To_integer(unsigned(RB)));
 end architecture;
