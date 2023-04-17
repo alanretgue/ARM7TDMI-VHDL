@@ -18,18 +18,22 @@ architecture TEST of PROCESS_UNIT_2_TB is
     signal N, Z, C, V: std_logic;
     signal ALUOut: std_logic_vector(31 downto 0);
     signal BusA, BusB: std_logic_vector(31 downto 0);
-    signal OPin: std_logic_vector(2 downto 0);
+    signal Ext: std_logic_vector(31 downto 0);
 begin
     CLK <= '0' when Done else not CLK after Period / 2;
 
     ALUOut <= <<signal .process_unit_2_tb.p.AluOut: std_logic_vector(31 downto 0)>>;
     BusA <= <<signal .process_unit_2_tb.p.A: std_logic_vector(31 downto 0)>>;
     BusB <= <<signal .process_unit_2_tb.p.B: std_logic_vector(31 downto 0)>>;
+    Ext <= <<signal .process_unit_2_tb.p.Extended: std_logic_vector(31 downto 0)>>;
     process begin
         -- Write 0x0F to R0
+        Reset <= '1';
+        wait for 1 ns;
         Reset <= '0';
         OP <= "000";
         RA <= x"0";
+        RB <= x"0";
         RW <= x"0";
         RegWr <= '1';
         WrEn <= '0';

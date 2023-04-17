@@ -24,8 +24,7 @@ add wave -radix hexadecimal RW
 add wave -radix hexadecimal ALUOut
 add wave -radix hexadecimal BusA
 add wave -radix hexadecimal BusB
-add wave -radix binary OP
 
-add wave -position end  sim:/process_unit_2_tb/P/AluOut
+add wave -radix hexadecimal Ext
 
 run -a
