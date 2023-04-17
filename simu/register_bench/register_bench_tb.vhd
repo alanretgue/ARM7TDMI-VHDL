@@ -59,8 +59,8 @@ begin
     WE <= '0';
     wait for 10 ns;
     report "Check 4";
-    assert A = x"0F00A94F" report "Error B on 4" severity warning;
-    assert B = x"00000000" report "Error A on 4" severity warning;
+    assert A = x"0F00A94F" report "Error A on 4" severity warning;
+    assert B = x"00000000" report "Error B on 4" severity warning;
     Done <= true;
     wait;
     end process;

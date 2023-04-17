@@ -34,8 +34,8 @@ begin
     process (CLK, Reset, RA, RB)
     begin
         if Reset = '1' then
-            A <= (others => '0');
-            B <= (others => '0');
+            A <= (others => 'Z');
+            B <= (others => 'Z');
             registers <= (others => (others => '0'));
         end if;
         if RISING_EDGE(CLK) then
