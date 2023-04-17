@@ -1,8 +1,8 @@
 vlib work
-vcom -93 ../../src/alu.vhd
-vcom -93 ../../src/register_bench.vhd
-vcom -93 ../../src/process_unit.vhd
-vcom -93 process_unit_tb.vhd
+vcom -2008 ../../src/alu.vhd
+vcom -2008 ../../src/register_bench.vhd
+vcom -2008 ../../src/process_unit.vhd
+vcom -2008 process_unit_tb.vhd
 
 vsim process_unit_tb
 
@@ -26,5 +26,7 @@ add wave -radix binary C
 add wave -radix hexadecimal sim:/process_unit_tb/P/REG/A
 add wave -radix hexadecimal sim:/process_unit_tb/P/REG/B
 add wave -radix hexadecimal sim:/process_unit_tb/P/REG/W
+
+add wave -radix hexadecimal sim:/process_unit_tb/P/REG/registers
 
 run -a

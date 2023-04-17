@@ -31,14 +31,11 @@ architecture steven of Register_Bench is
     -- Init registers
     signal registers: RegisterType := init_banc;
 begin
-    process (CLK, Reset, RA, RB)
+    process (CLK, Reset)
     begin
         if Reset = '1' then
-            A <= (others => 'Z');
-            B <= (others => 'Z');
-            registers <= (others => (others => '0'));
-        end if;
-        if RISING_EDGE(CLK) then
+            registers <= init_banc;
+        elsif RISING_EDGE(CLK) then
             if WE = '1' then
                 registers(To_integer(unsigned(RW))) <= W;
             end if;
