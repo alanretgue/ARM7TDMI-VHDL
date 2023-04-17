@@ -26,5 +26,7 @@ add wave -radix hexadecimal BusA
 add wave -radix hexadecimal BusB
 
 add wave -radix hexadecimal Ext
+add wave -radix hexadecimal RegisterBench
+add wave -radix hexadecimal DataBench
 
 run -a
