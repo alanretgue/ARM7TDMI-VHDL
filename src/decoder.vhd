@@ -37,8 +37,9 @@ begin
         Cond := Instr(31 downto 28);
 
         case Cond is
-            when "0000" => DoInstr := RegPSR(29);
-            when "0001" => DoInstr := not(RegPSR(29));
+            when "0000" => DoInstr := RegPSR(30);
+            when "0001" => DoInstr := not(RegPSR(30));
+            when "1011" => DoInstr := '1' when RegPSR(28) /= RegPSR(31) else '0';
             when others => DoInstr := '0';
         end case;
 
