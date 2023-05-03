@@ -7,14 +7,14 @@ entity Decoder is
         RegPSR: in std_logic_vector(31 downto 0);
         Instr: in std_logic_vector(31 downto 0);
         nPCSel: out std_logic;
-        RegWrite: out std_logic;
+        RegWr: out std_logic;
         RegSel: out std_logic;
         ALUSrc: out std_logic;
-        RegAff: out std_logic_vector(31 downto 0);
+        RegAff: out std_logic;
         MemWr: out std_logic;
-        ALUCtr: out std_logic;
+        ALUCtr: out std_logic_vector(2 downto 0);
         PSREn: out std_logic;
-        WrSrc: out std_logic;
+        WrSrc: out std_logic
     );
 end entity Decoder;
 
@@ -25,7 +25,7 @@ begin
         variable Cond: std_logic_vector(3 downto 0);
         variable Sharp: std_logic;
         variable Sel: std_logic_vector(1 downto 0);
-        variable Opcode: std_logic_vector(4 downto 0);
+        variable Opcode: std_logic_vector(3 downto 0);
         variable Rn: std_logic_vector(3 downto 0);
         variable Rd: std_logic_vector(3 downto 0);
         variable TinyOffset: std_logic_vector(11 downto 0);
@@ -37,10 +37,11 @@ begin
         Sel := Instr(27 downto 26);
         sharp := Instr(25);
         Cond := Instr(31 downto 28);
+        OpCode := Instr(24 downto 21);
 
 
-        Rn <= Instr(19 downto 16);
-        Rn <= Instr(15 downto 12);
+        Rn := Instr(19 downto 16);
+        Rd := Instr(15 downto 12);
         case Sel is
             when "00" =>
                 case Opcode is
@@ -140,10 +141,10 @@ begin
                 RegSel <= '0';
                 RegAff <= '0';
             when BLT =>
-                if RegPSR(28) /= RegPSR(31) then
-                    nPCSel <= '1';
-                else
+                if RegPSR(28) = RegPSR(31) then
                     nPCSel <= '0';
+                else
+                    nPCSel <= '1';
                 end if;
                 RegWr <= '0';
                 ALUSrc <= '0';

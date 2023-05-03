@@ -49,7 +49,9 @@ begin
             Z <= '0';
         end if;
         -- FLAG V
-        if a_var(31) = b_var(31) and s_var(31) /= a_var(31) then
+        if OP = "000" and a_var(31) = b_var(31) and s_var(31) /= a_var(31) then
+            V <= '1';
+        elsif OP = "010" and a_var(31) /= b_var(31) and s_var(31) /= a_var(31) then
             V <= '1';
         else
             V <= '0';

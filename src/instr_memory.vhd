@@ -21,7 +21,7 @@ architecture RTL of instruction_memory is
             result (i):=(others=>'0');
         end loop; -- PC -- INSTRUCTION -- COMMENTAIRE
         result (0):=x"E3A01010";-- 0x0 _main -- MOV R1,#0x10 -- R1 = 0x10
-        result (1):=x"E3A02000";-- 0x1 -- MOV R2,#0x00 -- R2 = 0
+        result (1):=x"E3A02001";-- 0x1 -- MOV R2,#0x01 -- R2 = 1
         result (2):=x"E6110000";-- 0x2 _loop -- LDR R0,0(R1) -- R0 = DATAMEM[R1]
         result (3):=x"E0822000";-- 0x3 -- ADD R2,R2,R0 -- R2 = R2 + R0
         result (4):=x"E2811001";-- 0x4 -- ADD R1,R1,#1 -- R1 = R1 + 1
