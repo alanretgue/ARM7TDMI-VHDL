@@ -4,12 +4,14 @@ use IEEE.numeric_std.all;
 
 entity Processor is
     port(
-        CLK, Reset: in std_logic;
-        displayer: out std_logic_vector(31 downto 0)
-    );
+        CLK: in std_logic;
+        KEY: in std_logic_vector(1 downto 0);
+        HEX0, HEX1, HEX2, HEX3: out std_logic_vector(0 to 6)
+        );
 end entity;
 
 architecture Victor of Processor is
+    signal Reset: std_logic;
     signal Instruction, RegPSR, Flags: std_logic_vector(31 downto 0);
     signal Rn, Rd, Rm, Rb: std_logic_vector(3 downto 0);
     signal nPCSel, RegWr, RegSel, ALUSrc, RegAff, MemWr, PSREn, WrSrc: std_logic;
@@ -17,6 +19,7 @@ architecture Victor of Processor is
     signal Imm8: std_logic_vector(7 downto 0);
     signal Imm24: std_logic_vector(23 downto 0);
 begin
+    Reset <= not KEY(0);
     Rn <= Instruction(19 downto 16);
     Rd <= Instruction(15 downto 12);
     Rm <= Instruction(3 downto 0);
@@ -41,7 +44,7 @@ begin
         ALUCtr,
         RegWr, MemWr,ALUSrc, WrSrc, RegAff,
         Flags(31), Flags(30), Flags(29), Flags(28),
-        displayer
+        HEX0, HEX1, HEX2, HEX3
     );
     REG_PSR: entity work.Register_PSR port map(
         CLK, Reset,

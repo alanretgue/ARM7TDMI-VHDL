@@ -16,19 +16,34 @@ end entity;
 architecture marc of Data_Memory is
     -- type declaration
     type MemoryType is array (63 downto 0) of Std_logic_vector(31 downto 0);
+
+    -- function declaration
+    function init_memory return MemoryType is
+        variable result : MemoryType;
+    begin
+        for i in 63 downto 0 loop
+            result(i) := (others=>'0');
+        end loop;
+        result(16):=X"00000030";
+        result(15):=X"000F0A00";
+        return result;
+    end init_memory;
+
+    -- signal declaration
     signal memory: MemoryType;
 begin
+    DataOut <= memory(to_integer(unsigned(Addr)));
     process (CLK, Reset)
     begin
         if Reset = '1' then
-            DataOut <= (others => 'Z');
-            memory <= (others => (others => '0'));
+            memory <= init_memory;
         end if;
         if Rising_Edge(CLK) then
             if WrEn = '1' then
                 memory(to_integer(unsigned(Addr))) <= DataIn;
             end if;
+        else
+            memory <= memory;
         end if;
     end process;
-    DataOut <= memory(to_integer(unsigned(Addr)));
 end marc ;

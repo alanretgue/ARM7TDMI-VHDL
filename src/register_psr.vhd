@@ -16,18 +16,20 @@ end entity Register_PSR;
 
 
 architecture Pascale of Register_PSR is
+    signal DATASAVED: std_logic_vector(31 downto 0);
 begin
+    DATAOUT <= DATASAVED;
     process (CLK, RST)
-        variable DATASAVED: std_logic_vector(31 downto 0);
     begin
         if RST = '1' then
-            DATASAVED := (others => '0');
+            DATASAVED <= (others => '0');
         end if;
         if Rising_Edge(CLK) then
             if WE = '1' then
-                DATASAVED := DATAIN;
+                DATASAVED <= DATAIN;
             end if;
+        else
+            DATASAVED <= DATASAVED;
         end if;
-        DATAOUT <= DATASAVED;
     end process;
 end Pascale ; -- Pascale

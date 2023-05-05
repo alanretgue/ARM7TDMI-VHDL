@@ -3,6 +3,7 @@ vlib work
 -- compile entity needed
 vcom -2008 ../../src/alu.vhd
 vcom -2008 ../../src/register_bench.vhd
+vcom -2008 ../../src/seven_segment.vhd
 vcom -2008 ../../src/mux21.vhd
 vcom -2008 ../../src/extend_sign.vhd
 vcom -2008 ../../src/data_memory.vhd
@@ -24,7 +25,6 @@ set NumericStdNoWarnings 1
 add wave CLK
 add wave Reset
 
-add wave -radix hexadecimal displayer
 add wave -radix hexadecimal RegisterBench
 add wave -radix hexadecimal DataBench
 add wave -position 3 -radix hexadecimal sim:/processor_tb/P/Instruction

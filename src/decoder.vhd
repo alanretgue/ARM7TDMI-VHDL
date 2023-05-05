@@ -45,13 +45,18 @@ begin
         case Sel is
             when "00" =>
                 case Opcode is
-                    when "0100" => instr_courante := ADDi when sharp = '1' else ADDr;
+                    when "0100" =>  
+                        if sharp = '1' then
+                            instr_courante := ADDi;
+                        else
+                            instr_courante := ADDr;
+                        end if;
                     when "1010" => instr_courante := CMP;
                     when "1101" => instr_courante := MOV;
                     when others => instr_courante := NOP;
                 end case;
             when "01" =>
-                if Instr(20) = '0' then
+                if Instr(20) = '1' then
                     instr_courante := LDR;
                 else
                     instr_courante := STR;
@@ -114,8 +119,8 @@ begin
             when LDR =>
                 nPCSel <= '0';
                 RegWr <= '1';
-                ALUSrc <= '1';
-                ALUCtr <= "000";
+                ALUSrc <= '0';
+                ALUCtr <= "011";
                 PSREn <= '0';
                 MemWr <= '0';
                 WrSrc <= '1';
@@ -123,9 +128,9 @@ begin
             when STR =>
                 nPCSel <= '0';
                 RegWr <= '0';
-                ALUSrc <= '1';
-                ALUCtr <= "000";
-                PSREn <= '1';
+                ALUSrc <= '0';
+                ALUCtr <= "011";
+                PSREn <= '0';
                 MemWr <= '1';
                 WrSrc <= '0';
                 RegSel <= '1';
