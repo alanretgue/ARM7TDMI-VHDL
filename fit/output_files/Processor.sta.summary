@@ -3,19 +3,19 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'CLK'
-Slack : -16.998
-TNS   : -25220.127
+Slack : -13.206
+TNS   : -24230.261
 
 Type  : Slow 1200mV 85C Model Setup 'instruction_unit:Instr_Unit|PC:PC_SET|PCout[0]'
-Slack : -4.879
-TNS   : -4.879
+Slack : -4.911
+TNS   : -4.911
 
 Type  : Slow 1200mV 85C Model Hold 'instruction_unit:Instr_Unit|PC:PC_SET|PCout[0]'
-Slack : 0.262
+Slack : 0.412
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'CLK'
-Slack : 0.731
+Slack : 0.729
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLK'
@@ -23,23 +23,23 @@ Slack : -3.000
 TNS   : -3089.600
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'instruction_unit:Instr_Unit|PC:PC_SET|PCout[0]'
-Slack : 0.456
+Slack : 0.442
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'CLK'
-Slack : -15.835
-TNS   : -23532.359
+Slack : -12.275
+TNS   : -22557.780
 
 Type  : Slow 1200mV 0C Model Setup 'instruction_unit:Instr_Unit|PC:PC_SET|PCout[0]'
-Slack : -4.559
-TNS   : -4.559
+Slack : -4.597
+TNS   : -4.597
 
 Type  : Slow 1200mV 0C Model Hold 'instruction_unit:Instr_Unit|PC:PC_SET|PCout[0]'
-Slack : 0.184
+Slack : 0.372
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'CLK'
-Slack : 0.676
+Slack : 0.673
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLK'
@@ -47,31 +47,31 @@ Slack : -3.000
 TNS   : -3089.600
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'instruction_unit:Instr_Unit|PC:PC_SET|PCout[0]'
-Slack : 0.466
+Slack : 0.450
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'CLK'
-Slack : -6.958
-TNS   : -9425.216
+Slack : -4.980
+TNS   : -8775.361
 
 Type  : Fast 1200mV 0C Model Setup 'instruction_unit:Instr_Unit|PC:PC_SET|PCout[0]'
-Slack : -1.760
-TNS   : -1.760
+Slack : -1.754
+TNS   : -1.754
 
 Type  : Fast 1200mV 0C Model Hold 'instruction_unit:Instr_Unit|PC:PC_SET|PCout[0]'
-Slack : 0.156
+Slack : 0.168
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'CLK'
-Slack : 0.290
+Slack : 0.216
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLK'
 Slack : -3.000
-TNS   : -2258.549
+TNS   : -2269.916
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'instruction_unit:Instr_Unit|PC:PC_SET|PCout[0]'
-Slack : 0.436
+Slack : 0.414
 TNS   : 0.000
 
 ------------------------------------------------------------

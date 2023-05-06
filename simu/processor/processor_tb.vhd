@@ -39,6 +39,7 @@ begin
             report "TEST 1";
             assert R1 = std_logic_vector(to_unsigned(16 + i, 32)) report "Error R1" severity warning;
             wait for 10 ns;
+            wait for 10 ns;
             report "TEST 2";
             assert R0 = x"00000030" report "Error R0" severity warning;
             wait for 10 ns;

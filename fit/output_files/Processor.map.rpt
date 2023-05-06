@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Processor
-Fri May 05 16:57:50 2023
+Sat May 06 12:19:26 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -57,7 +57,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri May 05 16:57:50 2023       ;
+; Analysis & Synthesis Status        ; Successful - Sat May 06 12:19:26 2023       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; Processor                                   ;
 ; Top-level Entity Name              ; Processor                                   ;
@@ -170,16 +170,16 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
-; Average used               ; 1.02        ;
+; Average used               ; 1.01        ;
 ; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.4%      ;
-;     Processor 3            ;   0.2%      ;
-;     Processor 4            ;   0.2%      ;
-;     Processor 5            ;   0.2%      ;
-;     Processor 6            ;   0.2%      ;
+;     Processor 2            ;   0.2%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
 ;     Processor 7            ;   0.1%      ;
 ;     Processor 8            ;   0.1%      ;
 +----------------------------+-------------+
@@ -838,7 +838,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+----------------------------------------------------------+
 ; Port ; Type  ; Severity ; Details                                                  ;
 +------+-------+----------+----------------------------------------------------------+
-; pol  ; Input ; Info     ; Stuck at VCC                                             ;
+; pol  ; Input ; Info     ; Stuck at GND                                             ;
 +------+-------+----------+----------------------------------------------------------+
 
 
@@ -847,7 +847,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+----------------------------------------------------------+
 ; Port ; Type  ; Severity ; Details                                                  ;
 +------+-------+----------+----------------------------------------------------------+
-; pol  ; Input ; Info     ; Stuck at VCC                                             ;
+; pol  ; Input ; Info     ; Stuck at GND                                             ;
 +------+-------+----------+----------------------------------------------------------+
 
 
@@ -856,7 +856,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+----------------------------------------------------------+
 ; Port ; Type  ; Severity ; Details                                                  ;
 +------+-------+----------+----------------------------------------------------------+
-; pol  ; Input ; Info     ; Stuck at VCC                                             ;
+; pol  ; Input ; Info     ; Stuck at GND                                             ;
 +------+-------+----------+----------------------------------------------------------+
 
 
@@ -865,7 +865,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+----------------------------------------------------------+
 ; Port ; Type  ; Severity ; Details                                                  ;
 +------+-------+----------+----------------------------------------------------------+
-; pol  ; Input ; Info     ; Stuck at VCC                                             ;
+; pol  ; Input ; Info     ; Stuck at GND                                             ;
 +------+-------+----------+----------------------------------------------------------+
 
 
@@ -888,17 +888,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     CLR               ; 6                           ;
 ;     ENA               ; 2066                        ;
 ;     ENA CLR           ; 128                         ;
-; cycloneiii_lcell_comb ; 4024                        ;
+; cycloneiii_lcell_comb ; 4004                        ;
 ;     arith             ; 38                          ;
 ;         3 data inputs ; 38                          ;
-;     normal            ; 3986                        ;
-;         1 data inputs ; 24                          ;
+;     normal            ; 3966                        ;
+;         1 data inputs ; 4                           ;
 ;         2 data inputs ; 611                         ;
 ;         3 data inputs ; 1618                        ;
 ;         4 data inputs ; 1733                        ;
 ;                       ;                             ;
 ; Max LUT depth         ; 16.10                       ;
-; Average LUT depth     ; 9.70                        ;
+; Average LUT depth     ; 9.72                        ;
 +-----------------------+-----------------------------+
 
 
@@ -907,7 +907,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:27     ;
+; Top            ; 00:00:43     ;
 +----------------+--------------+
 
 
@@ -917,7 +917,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri May 05 16:57:02 2023
+    Info: Processing started: Sat May 06 12:17:57 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Processor -c Processor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -925,8 +925,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file /cours/
     Info (12022): Found design unit 1: SEVEN_SEG-COMB File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/seven_segment.vhd Line: 39
     Info (12023): Found entity 1: SEVEN_SEG File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/seven_segment.vhd Line: 31
 Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_benoit/src/register_psr.vhd
-    Info (12022): Found design unit 1: Register_PSR-Pascale File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/register_psr.vhd Line: 18
-    Info (12023): Found entity 1: Register_PSR File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/register_psr.vhd Line: 8
+    Info (12022): Found design unit 1: Register_PSR-Pascale File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/register_psr.vhd Line: 16
+    Info (12023): Found entity 1: Register_PSR File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/register_psr.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_benoit/src/register_bench.vhd
     Info (12022): Found design unit 1: Register_Bench-steven File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/register_bench.vhd Line: 15
     Info (12023): Found entity 1: Register_Bench File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/register_bench.vhd Line: 5
@@ -986,7 +986,7 @@ Info (12128): Elaborating entity "Data_Memory" for hierarchy "register_and_memor
 Warning (10492): VHDL Process Statement warning at data_memory.vhd(46): signal "memory" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/data_memory.vhd Line: 46
 Info (12128): Elaborating entity "Register_Bench" for hierarchy "register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG" File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/register_and_memory.vhd Line: 24
 Info (12128): Elaborating entity "Register_PSR" for hierarchy "register_and_memory:REGISTER_AND_MEMORY|Register_PSR:AFF" File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/register_and_memory.vhd Line: 25
-Warning (10492): VHDL Process Statement warning at register_psr.vhd(32): signal "DATASAVED" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/register_psr.vhd Line: 32
+Warning (10492): VHDL Process Statement warning at register_psr.vhd(30): signal "DATASAVED" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/register_psr.vhd Line: 30
 Info (12128): Elaborating entity "SEVEN_SEG" for hierarchy "register_and_memory:REGISTER_AND_MEMORY|SEVEN_SEG:SEG1" File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/register_and_memory.vhd Line: 26
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276013): RAM logic "instruction_unit:Instr_Unit|instruction_memory:INST_MEM|mem" is uninferred because MIF is not supported for the selected family File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/instr_memory.vhd Line: 35
@@ -994,6 +994,31 @@ Warning (13012): Latch Decoder:Dec|RegSel has unsafe behavior File: D:/Cours/VHD
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction_unit:Instr_Unit|PC:PC_SET|PCout[5] File: D:/Cours/VHDL/VHDL-Proc_Benoit/src/pc.vhd Line: 18
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 26 registers lost all their fanouts during netlist optimizations.
+Warning (20013): Ignored 24 assignments for entity "DE10_LITE_Golden_Top" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE10_LITE_Golden_Top -section_id Top was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
@@ -1002,10 +1027,10 @@ Info (21057): Implemented 4159 device resources after synthesis - the final reso
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 28 output pins
     Info (21061): Implemented 4128 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 4853 megabytes
-    Info: Processing ended: Fri May 05 16:57:50 2023
-    Info: Elapsed time: 00:00:48
-    Info: Total CPU time (on all processors): 00:01:10
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 36 warnings
+    Info: Peak virtual memory: 4835 megabytes
+    Info: Processing ended: Sat May 06 12:19:26 2023
+    Info: Elapsed time: 00:01:29
+    Info: Total CPU time (on all processors): 00:01:41
 
 

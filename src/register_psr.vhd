@@ -2,8 +2,6 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
--- I don't really understand the use of this file.
--- Is it to register PSR or to register RegAff ?
 
 entity Register_PSR is
     port(

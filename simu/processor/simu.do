@@ -32,5 +32,11 @@ add wave -position 4 sim:/processor_tb/P/Dec/RegWr
 add wave -position 5 sim:/processor_tb/P/REG_PSR/DATAIN
 add wave -position 6 sim:/processor_tb/P/REG_PSR/DATAOUT
 add wave -position 7 sim:/processor_tb/P/nPCSel
+add wave -position end sim:/processor_tb/P/REGISTER_AND_MEMORY/Afficheur
+
+add wave -position end  sim:/processor_tb/P/HEX0
+add wave -position end  sim:/processor_tb/P/HEX1
+add wave -position end  sim:/processor_tb/P/HEX2
+add wave -position end  sim:/processor_tb/P/HEX3
 
 run -a
