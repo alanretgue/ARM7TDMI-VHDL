@@ -16,7 +16,7 @@ add wave Reset
 add wave TX
 add wave state
 add wave Tick_bit
-add wave -position end  sim:/uart_tx_tb/G/cnt_bit
+-- add wave -position end  sim:/uart_tx_tb/G/cnt_bit
 
 
 run -a

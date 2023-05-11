@@ -79,5 +79,5 @@ begin
     wait;
     end process;
 
-    G: entity Work.UART_TX generic map (2) port map (CLK, RESET, go, Data, Tx);
+    G: entity Work.UART_TX generic map (2) port map (CLK, RESET, Data, Tx);
 end architecture;
