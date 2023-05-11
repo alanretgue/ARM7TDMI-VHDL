@@ -1,0 +1,1036 @@
+Analysis & Synthesis report for TOP_LEVEL
+Thu May 11 15:04:53 2023
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Mux21:MUX_Rb
+ 13. Parameter Settings for User Entity Instance: instruction_unit:Instr_Unit|Extend_Sign:Offset_Extend
+ 14. Parameter Settings for User Entity Instance: instruction_unit:Instr_Unit|Mux21:MUX
+ 15. Parameter Settings for User Entity Instance: register_and_memory:REGISTER_AND_MEMORY|Extend_Sign:IMM_EXTEND
+ 16. Parameter Settings for User Entity Instance: register_and_memory:REGISTER_AND_MEMORY|Mux21:MUX_1
+ 17. Parameter Settings for User Entity Instance: register_and_memory:REGISTER_AND_MEMORY|Mux21:MUX_2
+ 18. Port Connectivity Checks: "Register_PSR:REG_PSR"
+ 19. Port Connectivity Checks: "register_and_memory:REGISTER_AND_MEMORY|SEVEN_SEG:SEG4"
+ 20. Port Connectivity Checks: "register_and_memory:REGISTER_AND_MEMORY|SEVEN_SEG:SEG3"
+ 21. Port Connectivity Checks: "register_and_memory:REGISTER_AND_MEMORY|SEVEN_SEG:SEG2"
+ 22. Port Connectivity Checks: "register_and_memory:REGISTER_AND_MEMORY|SEVEN_SEG:SEG1"
+ 23. Port Connectivity Checks: "register_and_memory:REGISTER_AND_MEMORY|Register_PSR:AFF"
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu May 11 15:04:52 2023       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; TOP_LEVEL                                   ;
+; Top-level Entity Name              ; TOP_LEVEL                                   ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 4,096                                       ;
+;     Total combinational functions  ; 4,000                                       ;
+;     Dedicated logic registers      ; 2,200                                       ;
+; Total registers                    ; 2200                                        ;
+; Total pins                         ; 31                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; TOP_LEVEL          ; TOP_LEVEL          ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.2%      ;
+;     Processor 3            ;   0.2%      ;
+;     Processor 4            ;   0.2%      ;
+;     Processor 5            ;   0.2%      ;
+;     Processor 6            ;   0.2%      ;
+;     Processor 7            ;   0.2%      ;
+;     Processor 8            ;   0.1%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                        ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                 ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------+---------+
+; ../src/top_level.vhd             ; yes             ; User VHDL File  ; D:/Cours/VHDL/VHDL-Proc_monoycle/src/top_level.vhd           ;         ;
+; ../src/seven_segment.vhd         ; yes             ; User VHDL File  ; D:/Cours/VHDL/VHDL-Proc_monoycle/src/seven_segment.vhd       ;         ;
+; ../src/register_psr.vhd          ; yes             ; User VHDL File  ; D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_psr.vhd        ;         ;
+; ../src/register_bench.vhd        ; yes             ; User VHDL File  ; D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_bench.vhd      ;         ;
+; ../src/register_and_memory.vhd   ; yes             ; User VHDL File  ; D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_and_memory.vhd ;         ;
+; ../src/pc.vhd                    ; yes             ; User VHDL File  ; D:/Cours/VHDL/VHDL-Proc_monoycle/src/pc.vhd                  ;         ;
+; ../src/mux21.vhd                 ; yes             ; User VHDL File  ; D:/Cours/VHDL/VHDL-Proc_monoycle/src/mux21.vhd               ;         ;
+; ../src/instr_unit.vhd            ; yes             ; User VHDL File  ; D:/Cours/VHDL/VHDL-Proc_monoycle/src/instr_unit.vhd          ;         ;
+; ../src/instr_memory.vhd          ; yes             ; User VHDL File  ; D:/Cours/VHDL/VHDL-Proc_monoycle/src/instr_memory.vhd        ;         ;
+; ../src/extend_sign.vhd           ; yes             ; User VHDL File  ; D:/Cours/VHDL/VHDL-Proc_monoycle/src/extend_sign.vhd         ;         ;
+; ../src/decoder.vhd               ; yes             ; User VHDL File  ; D:/Cours/VHDL/VHDL-Proc_monoycle/src/decoder.vhd             ;         ;
+; ../src/data_memory.vhd           ; yes             ; User VHDL File  ; D:/Cours/VHDL/VHDL-Proc_monoycle/src/data_memory.vhd         ;         ;
+; ../src/alu.vhd                   ; yes             ; User VHDL File  ; D:/Cours/VHDL/VHDL-Proc_monoycle/src/alu.vhd                 ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 4,096     ;
+;                                             ;           ;
+; Total combinational functions               ; 4000      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 1733      ;
+;     -- 3 input functions                    ; 1656      ;
+;     -- <=2 input functions                  ; 611       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 3962      ;
+;     -- arithmetic mode                      ; 38        ;
+;                                             ;           ;
+; Total registers                             ; 2200      ;
+;     -- Dedicated logic registers            ; 2200      ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 31        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 2200      ;
+; Total fan-out                               ; 19909     ;
+; Average fan-out                             ; 3.18      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                            ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                   ; Entity Name         ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------+---------------------+--------------+
+; |TOP_LEVEL                                   ; 4000 (0)            ; 2200 (0)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 31   ; 0            ; 0          ; |TOP_LEVEL                                                            ; TOP_LEVEL           ; work         ;
+;    |Decoder:Dec|                             ; 24 (24)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|Decoder:Dec                                                ; Decoder             ; work         ;
+;    |Mux21:MUX_Rb|                            ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|Mux21:MUX_Rb                                               ; Mux21               ; work         ;
+;    |Register_PSR:REG_PSR|                    ; 8 (8)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|Register_PSR:REG_PSR                                       ; Register_PSR        ; work         ;
+;    |instruction_unit:Instr_Unit|             ; 32 (5)              ; 6 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|instruction_unit:Instr_Unit                                ; instruction_unit    ; work         ;
+;       |PC:PC_SET|                            ; 7 (7)               ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|instruction_unit:Instr_Unit|PC:PC_SET                      ; PC                  ; work         ;
+;       |instruction_memory:INST_MEM|          ; 20 (20)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|instruction_unit:Instr_Unit|instruction_memory:INST_MEM    ; instruction_memory  ; work         ;
+;    |register_and_memory:REGISTER_AND_MEMORY| ; 3929 (0)            ; 2192 (0)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY                    ; register_and_memory ; work         ;
+;       |ALU:ALU|                              ; 85 (85)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|ALU:ALU            ; ALU                 ; work         ;
+;       |Data_Memory:MEM|                      ; 2184 (2184)         ; 2048 (2048)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM    ; Data_Memory         ; work         ;
+;       |Mux21:MUX_1|                          ; 31 (31)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Mux21:MUX_1        ; Mux21               ; work         ;
+;       |Mux21:MUX_2|                          ; 1405 (1405)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Mux21:MUX_2        ; Mux21               ; work         ;
+;       |Register_Bench:REG|                   ; 179 (179)           ; 128 (128)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG ; Register_Bench      ; work         ;
+;       |Register_PSR:AFF|                     ; 17 (17)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Register_PSR:AFF   ; Register_PSR        ; work         ;
+;       |SEVEN_SEG:SEG1|                       ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|SEVEN_SEG:SEG1     ; SEVEN_SEG           ; work         ;
+;       |SEVEN_SEG:SEG2|                       ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|SEVEN_SEG:SEG2     ; SEVEN_SEG           ; work         ;
+;       |SEVEN_SEG:SEG3|                       ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|SEVEN_SEG:SEG3     ; SEVEN_SEG           ; work         ;
+;       |SEVEN_SEG:SEG4|                       ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|SEVEN_SEG:SEG4     ; SEVEN_SEG           ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; Decoder:Dec|RegSel                                 ; Decoder:Dec|RegSel  ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                         ;
++------------------------------------------------------------------------------+---------------------------------------------+
+; Register name                                                                ; Reason for Removal                          ;
++------------------------------------------------------------------------------+---------------------------------------------+
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][3]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][3]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][3]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][3]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][3]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][3]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][3]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][3]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][3]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][3]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][3]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][3]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][2]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][2]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][2]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][2]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][2]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][2]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][2]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][2]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][2]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][2]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][2]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][2]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][1]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][1]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][1]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][1]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][1]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][1]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][1]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][1]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][1]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][1]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][1]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][1]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][0]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][0]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][0]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][0]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][0]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][0]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][0]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][0]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][0]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][0]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][0]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][0]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][7]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][7]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][7]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][7]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][7]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][7]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][7]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][7]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][7]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][7]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][7]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][7]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][6]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][6]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][6]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][6]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][6]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][6]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][6]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][6]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][6]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][6]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][6]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][6]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][5]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][5]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][5]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][5]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][5]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][5]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][5]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][5]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][5]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][5]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][5]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][5]  ; Stuck at VCC due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][4]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][4]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][4]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][4]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][4]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][4]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][4]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][4]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][4]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][4]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][4]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][4]  ; Stuck at VCC due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][11]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][11]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][11]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][11]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][11]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][11]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][11] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][11] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][11] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][11] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][11] ; Stuck at VCC due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][11] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][10]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][10]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][10]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][10]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][10]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][10]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][10] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][10] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][10] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][10] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][10] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][10] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][9]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][9]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][9]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][9]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][9]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][9]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][9]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][9]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][9]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][9]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][9]  ; Stuck at VCC due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][9]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][8]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][8]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][8]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][8]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][8]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][8]   ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][8]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][8]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][8]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][8]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][8]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][8]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][15]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][15]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][15]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][15]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][15]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][15]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][15] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][15] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][15] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][15] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][15] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][15] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][14]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][14]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][14]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][14]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][14]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][14]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][14] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][14] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][14] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][14] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][14] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][14] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][13]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][13]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][13]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][13]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][13]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][13]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][13] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][13] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][13] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][13] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][13] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][13] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][12]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][12]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][12]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][12]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][12]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][12]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][12] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][12] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][12] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][12] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][12] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][12] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][16]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][16]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][16]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][16]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][16]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][16]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][16] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][16] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][16] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][16] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][16] ; Stuck at VCC due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][16] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][17]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][17]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][17]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][17]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][17]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][17]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][17] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][17] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][17] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][17] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][17] ; Stuck at VCC due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][17] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][18]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][18]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][18]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][18]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][18]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][18]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][18] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][18] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][18] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][18] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][18] ; Stuck at VCC due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][18] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][19]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][19]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][19]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][19]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][19]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][19]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][19] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][19] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][19] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][19] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][19] ; Stuck at VCC due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][19] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][20]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][20]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][20]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][20]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][20]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][20]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][20] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][20] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][20] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][20] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][20] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][20] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][21]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][21]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][21]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][21]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][21]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][21]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][21] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][21] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][21] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][21] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][21] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][21] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][22]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][22]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][22]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][22]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][22]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][22]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][22] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][22] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][22] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][22] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][22] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][22] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][23]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][23]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][23]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][23]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][23]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][23]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][23] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][23] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][23] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][23] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][23] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][23] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][24]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][24]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][24]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][24]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][24]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][24]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][24] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][24] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][24] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][24] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][24] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][24] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][25]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][25]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][25]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][25]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][25]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][25]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][25] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][25] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][25] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][25] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][25] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][25] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][26]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][26]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][26]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][26]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][26]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][26]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][26] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][26] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][26] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][26] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][26] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][26] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][27]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][27]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][27]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][27]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][27]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][27]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][27] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][27] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][27] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][27] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][27] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][27] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][28]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][28]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][28]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][28]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][28]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][28]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][28] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][28] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][28] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][28] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][28] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][28] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][29]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][29]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][29]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][29]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][29]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][29]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][29] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][29] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][29] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][29] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][29] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][29] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][30]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][30]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][30]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][30]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][30]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][30]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][30] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][30] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][30] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][30] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][30] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][30] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[4][31]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[5][31]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[6][31]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[7][31]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[8][31]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[9][31]  ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[10][31] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[11][31] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[12][31] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[13][31] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[14][31] ; Stuck at GND due to stuck port clock_enable ;
+; register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|registers[15][31] ; Stuck at GND due to stuck port clock_enable ;
+; instruction_unit:Instr_Unit|PC:PC_SET|PCout[6..31]                           ; Lost fanout                                 ;
+; Total Number of Removed Registers = 410                                      ;                                             ;
++------------------------------------------------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2200  ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 134   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 2194  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[0][14]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[1][7]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[2][31]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[3][23]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[4][3]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[5][2]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[6][25]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[7][27]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[8][11]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[9][20]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[10][3]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[11][16] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[12][16] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[13][3]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[14][16] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[15][16] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[16][16] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[17][16] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[18][16] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[19][16] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[20][31] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[21][18] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[22][11] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[23][27] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[24][25] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[25][30] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[26][0]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[27][30] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[28][26] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[29][23] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[30][17] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[31][4]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[32][10] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[33][26] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[34][21] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[35][20] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[36][25] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[37][0]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[38][7]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[39][26] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[40][25] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[41][26] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[42][20] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[43][0]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[44][1]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[45][7]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[46][29] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[47][5]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[48][20] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[49][12] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[50][15] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[51][21] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[52][26] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[53][14] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[54][11] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[55][3]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[56][19] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[57][6]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[58][2]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[59][23] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[60][18] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[61][21] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[62][1]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM|memory[63][12] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Register_PSR:AFF|DATASAVED[3]  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|ALU:ALU|Mux1                   ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |TOP_LEVEL|Decoder:Dec|Mux7                                                       ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|Mux25       ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 320 LEs              ; 0 LEs                  ; No         ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG|Mux62       ;
+; 65:1               ; 7 bits    ; 301 LEs       ; 301 LEs              ; 0 LEs                  ; No         ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Mux21:MUX_2|S[31]              ;
+; 68:1               ; 25 bits   ; 1125 LEs      ; 1100 LEs             ; 25 LEs                 ; No         ; |TOP_LEVEL|register_and_memory:REGISTER_AND_MEMORY|Mux21:MUX_2|S[17]              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux21:MUX_Rb ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; n              ; 4     ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: instruction_unit:Instr_Unit|Extend_Sign:Offset_Extend ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; n              ; 24    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: instruction_unit:Instr_Unit|Mux21:MUX ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; n              ; 32    ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: register_and_memory:REGISTER_AND_MEMORY|Extend_Sign:IMM_EXTEND ;
++----------------+-------+------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                               ;
++----------------+-------+------------------------------------------------------------------------------------+
+; n              ; 8     ; Signed Integer                                                                     ;
++----------------+-------+------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: register_and_memory:REGISTER_AND_MEMORY|Mux21:MUX_1 ;
++----------------+-------+-------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                    ;
++----------------+-------+-------------------------------------------------------------------------+
+; n              ; 32    ; Signed Integer                                                          ;
++----------------+-------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: register_and_memory:REGISTER_AND_MEMORY|Mux21:MUX_2 ;
++----------------+-------+-------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                    ;
++----------------+-------+-------------------------------------------------------------------------+
+; n              ; 32    ; Signed Integer                                                          ;
++----------------+-------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "Register_PSR:REG_PSR" ;
++---------------+-------+----------+---------------+
+; Port          ; Type  ; Severity ; Details       ;
++---------------+-------+----------+---------------+
+; datain[27..0] ; Input ; Info     ; Stuck at GND  ;
++---------------+-------+----------+---------------+
+
+
++------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_and_memory:REGISTER_AND_MEMORY|SEVEN_SEG:SEG4" ;
++------+-------+----------+----------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                  ;
++------+-------+----------+----------------------------------------------------------+
+; pol  ; Input ; Info     ; Stuck at GND                                             ;
++------+-------+----------+----------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_and_memory:REGISTER_AND_MEMORY|SEVEN_SEG:SEG3" ;
++------+-------+----------+----------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                  ;
++------+-------+----------+----------------------------------------------------------+
+; pol  ; Input ; Info     ; Stuck at GND                                             ;
++------+-------+----------+----------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_and_memory:REGISTER_AND_MEMORY|SEVEN_SEG:SEG2" ;
++------+-------+----------+----------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                  ;
++------+-------+----------+----------------------------------------------------------+
+; pol  ; Input ; Info     ; Stuck at GND                                             ;
++------+-------+----------+----------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_and_memory:REGISTER_AND_MEMORY|SEVEN_SEG:SEG1" ;
++------+-------+----------+----------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                  ;
++------+-------+----------+----------------------------------------------------------+
+; pol  ; Input ; Info     ; Stuck at GND                                             ;
++------+-------+----------+----------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_and_memory:REGISTER_AND_MEMORY|Register_PSR:AFF"                                      ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; dataout[31..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 31                          ;
+; cycloneiii_ff         ; 2200                        ;
+;     CLR               ; 6                           ;
+;     ENA               ; 2066                        ;
+;     ENA CLR           ; 128                         ;
+; cycloneiii_lcell_comb ; 4004                        ;
+;     arith             ; 38                          ;
+;         3 data inputs ; 38                          ;
+;     normal            ; 3966                        ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 611                         ;
+;         3 data inputs ; 1618                        ;
+;         4 data inputs ; 1733                        ;
+;                       ;                             ;
+; Max LUT depth         ; 16.10                       ;
+; Average LUT depth     ; 9.72                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:23     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Thu May 11 15:04:10 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TOP_LEVEL -c TOP_LEVEL
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_monoycle/src/top_level.vhd
+    Info (12022): Found design unit 1: TOP_LEVEL-Victor File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/top_level.vhd Line: 13
+    Info (12023): Found entity 1: TOP_LEVEL File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/top_level.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_monoycle/src/seven_segment.vhd
+    Info (12022): Found design unit 1: SEVEN_SEG-COMB File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/seven_segment.vhd Line: 39
+    Info (12023): Found entity 1: SEVEN_SEG File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/seven_segment.vhd Line: 31
+Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_monoycle/src/register_psr.vhd
+    Info (12022): Found design unit 1: Register_PSR-Pascale File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_psr.vhd Line: 16
+    Info (12023): Found entity 1: Register_PSR File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_psr.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_monoycle/src/register_bench.vhd
+    Info (12022): Found design unit 1: Register_Bench-steven File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_bench.vhd Line: 15
+    Info (12023): Found entity 1: Register_Bench File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_bench.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_monoycle/src/register_and_memory.vhd
+    Info (12022): Found design unit 1: register_and_memory-PU File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_and_memory.vhd Line: 16
+    Info (12023): Found entity 1: register_and_memory File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_and_memory.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_monoycle/src/process_unit_2.vhd
+    Info (12022): Found design unit 1: Process_Unit_2-PU File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/process_unit_2.vhd Line: 15
+    Info (12023): Found entity 1: Process_Unit_2 File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/process_unit_2.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_monoycle/src/process_unit.vhd
+    Info (12022): Found design unit 1: Process_Unit-PU File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/process_unit.vhd Line: 14
+    Info (12023): Found entity 1: Process_Unit File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/process_unit.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_monoycle/src/pc.vhd
+    Info (12022): Found design unit 1: PC-Patrick File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/pc.vhd Line: 14
+    Info (12023): Found entity 1: PC File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/pc.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_monoycle/src/mux21.vhd
+    Info (12022): Found design unit 1: Mux21-Michel File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/mux21.vhd Line: 14
+    Info (12023): Found entity 1: Mux21 File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/mux21.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_monoycle/src/instr_unit.vhd
+    Info (12022): Found design unit 1: instruction_unit-Igor File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/instr_unit.vhd Line: 16
+    Info (12023): Found entity 1: instruction_unit File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/instr_unit.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_monoycle/src/instr_memory.vhd
+    Info (12022): Found design unit 1: instruction_memory-RTL File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/instr_memory.vhd Line: 14
+    Info (12023): Found entity 1: instruction_memory File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/instr_memory.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_monoycle/src/extend_sign.vhd
+    Info (12022): Found design unit 1: Extend_Sign-Pascal File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/extend_sign.vhd Line: 13
+    Info (12023): Found entity 1: Extend_Sign File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/extend_sign.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_monoycle/src/decoder.vhd
+    Info (12022): Found design unit 1: Decoder-Derick File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/decoder.vhd Line: 21
+    Info (12023): Found entity 1: Decoder File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/decoder.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_monoycle/src/data_memory.vhd
+    Info (12022): Found design unit 1: Data_Memory-marc File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/data_memory.vhd Line: 16
+    Info (12023): Found entity 1: Data_Memory File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/data_memory.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /cours/vhdl/vhdl-proc_monoycle/src/alu.vhd
+    Info (12022): Found design unit 1: ALU-rts File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/alu.vhd Line: 15
+    Info (12023): Found entity 1: ALU File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/alu.vhd Line: 5
+Info (12127): Elaborating entity "TOP_LEVEL" for the top level hierarchy
+Warning (10873): Using initial value X (don't care) for net "Flags[27..0]" at top_level.vhd(15) File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/top_level.vhd Line: 15
+Info (12128): Elaborating entity "Mux21" for hierarchy "Mux21:MUX_Rb" File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/top_level.vhd Line: 29
+Info (12128): Elaborating entity "instruction_unit" for hierarchy "instruction_unit:Instr_Unit" File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/top_level.vhd Line: 30
+Info (12128): Elaborating entity "Extend_Sign" for hierarchy "instruction_unit:Instr_Unit|Extend_Sign:Offset_Extend" File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/instr_unit.vhd Line: 22
+Info (12128): Elaborating entity "Mux21" for hierarchy "instruction_unit:Instr_Unit|Mux21:MUX" File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/instr_unit.vhd Line: 23
+Info (12128): Elaborating entity "PC" for hierarchy "instruction_unit:Instr_Unit|PC:PC_SET" File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/instr_unit.vhd Line: 24
+Info (12128): Elaborating entity "instruction_memory" for hierarchy "instruction_unit:Instr_Unit|instruction_memory:INST_MEM" File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/instr_unit.vhd Line: 25
+Info (12128): Elaborating entity "Decoder" for hierarchy "Decoder:Dec" File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/top_level.vhd Line: 36
+Warning (10036): Verilog HDL or VHDL warning at decoder.vhd(29): object "Rn" assigned a value but never read File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/decoder.vhd Line: 29
+Warning (10036): Verilog HDL or VHDL warning at decoder.vhd(30): object "Rd" assigned a value but never read File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/decoder.vhd Line: 30
+Warning (10631): VHDL Process Statement warning at decoder.vhd(24): inferring latch(es) for signal or variable "RegSel", which holds its previous value in one or more paths through the process File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/decoder.vhd Line: 24
+Info (10041): Inferred latch for "RegSel" at decoder.vhd(24) File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/decoder.vhd Line: 24
+Info (12128): Elaborating entity "register_and_memory" for hierarchy "register_and_memory:REGISTER_AND_MEMORY" File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/top_level.vhd Line: 40
+Info (12128): Elaborating entity "Extend_Sign" for hierarchy "register_and_memory:REGISTER_AND_MEMORY|Extend_Sign:IMM_EXTEND" File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_and_memory.vhd Line: 19
+Info (12128): Elaborating entity "ALU" for hierarchy "register_and_memory:REGISTER_AND_MEMORY|ALU:ALU" File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_and_memory.vhd Line: 21
+Info (12128): Elaborating entity "Data_Memory" for hierarchy "register_and_memory:REGISTER_AND_MEMORY|Data_Memory:MEM" File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_and_memory.vhd Line: 22
+Warning (10492): VHDL Process Statement warning at data_memory.vhd(46): signal "memory" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/data_memory.vhd Line: 46
+Info (12128): Elaborating entity "Register_Bench" for hierarchy "register_and_memory:REGISTER_AND_MEMORY|Register_Bench:REG" File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_and_memory.vhd Line: 24
+Info (12128): Elaborating entity "Register_PSR" for hierarchy "register_and_memory:REGISTER_AND_MEMORY|Register_PSR:AFF" File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_and_memory.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at register_psr.vhd(30): signal "DATASAVED" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_psr.vhd Line: 30
+Info (12128): Elaborating entity "SEVEN_SEG" for hierarchy "register_and_memory:REGISTER_AND_MEMORY|SEVEN_SEG:SEG1" File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/register_and_memory.vhd Line: 26
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276013): RAM logic "instruction_unit:Instr_Unit|instruction_memory:INST_MEM|mem" is uninferred because MIF is not supported for the selected family File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/instr_memory.vhd Line: 35
+Warning (13012): Latch Decoder:Dec|RegSel has unsafe behavior File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/decoder.vhd Line: 11
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instruction_unit:Instr_Unit|PC:PC_SET|PCout[5] File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/pc.vhd Line: 18
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 26 registers lost all their fanouts during netlist optimizations.
+Warning (20013): Ignored 24 assignments for entity "DE10_LITE_Golden_Top" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE10_LITE_Golden_Top -section_id Top was ignored
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[1]" File: D:/Cours/VHDL/VHDL-Proc_monoycle/src/top_level.vhd Line: 8
+Info (21057): Implemented 4159 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 28 output pins
+    Info (21061): Implemented 4128 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 36 warnings
+    Info: Peak virtual memory: 4850 megabytes
+    Info: Processing ended: Thu May 11 15:04:53 2023
+    Info: Elapsed time: 00:00:43
+    Info: Total CPU time (on all processors): 00:01:04
+
+
